@@ -1,0 +1,203 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="TPC_equipo_9A.MasterPage" %>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <title>AEC Distribution</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link rel="icon" href="/images/icon.png" type="logo" />
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="Scripts/bootstrap.bundle.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="Styles/styles.css" rel="stylesheet" />
+    <!--<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>-->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.navbar-nav .dropdown').hover(function () {
+                $(this).find('.dropdown-menu').stop(true, true).slideDown(300);
+            }, function () {
+                $(this).find('.dropdown-menu').stop(true, true).slideUp(300);
+            });
+
+            $('.navbar-nav .dropdown').on('shown.bs.dropdown', function () {
+                let dropdownMenu = $(this).find('.dropdown-menu');
+                let dropdownOffset = dropdownMenu.offset();
+                let dropdownWidth = dropdownMenu.outerWidth();
+                let windowWidth = $(window).width();
+
+                if (dropdownOffset.left + dropdownWidth > windowWidth) {
+                    dropdownMenu.css('left', 'auto').css('right', '0');
+                }
+            });
+        });
+    </script>
+
+    <style>
+        body {
+            background-color: #A7D8FF !important;
+            font-family: 'Roboto', sans-serif;
+            background-size: cover;
+            background-position: center;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .image-button {
+            height: 30px;
+            width: 30px;
+        }
+
+        .navbar, .navbar-nav .nav-link, .navbar-brand, .dropdown-menu, .dropdown-item {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .navbar {
+            background-color: #f5f5f5;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar-nav .nav-link {
+            color: white !important;
+            font-weight: 500;
+            font-size: 1rem;
+            background-color: #495057;
+            border-radius: 15px;
+            padding: 8px 16px;
+            margin: 0 5px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
+        }
+
+            .navbar-nav .nav-link:hover,
+            .dropdown-menu .dropdown-item:hover,
+            #dropdownMenuButton:hover {
+                background-color: #a7c4ff;
+                color: white !important;
+            }
+
+        .navbar-nav .nav-item.dropdown .dropdown-menu {
+            padding: 5px 10px;
+            background-color: #f5f5f5;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar-nav .dropdown-menu-end {
+            right: 0 !important;
+            left: auto !important;
+        }
+
+
+        .dropdown-menu .dropdown-item {
+            border-radius: 10px;
+            margin-right: 3px;
+            transition: background-color 0.3s ease;
+            padding: 5px 10px;
+        }
+
+            .dropdown-menu .dropdown-item:hover {
+                background-color: #a7c4ff;
+                margin-right: 3px;
+                color: white;
+                padding: 5px 10px;
+            }
+
+        #dropdownMenuButton {
+            background-color: #495057;
+            color: white !important;
+            font-weight: 500;
+            font-size: 1rem;
+            border-radius: 15px;
+            padding: 8px 16px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease; 
+        }
+
+        .navbar-brand {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+            font-size: 1.5rem;
+            color: white !important;
+        }
+
+        footer {
+            background-color: #212529;
+            padding: 10px 0;
+            text-align: center;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            color: #ffffff;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server" style="flex: 1;">
+        <div>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">AEC Distribution</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                        <ul class="navbar-nav me-auto">
+                            <li class="nav-item" id="liInicio" runat="server" visible="false">
+                                <a class="nav-link active" aria-current="page" href="Default.aspx">Inicio</a>
+                            </li>
+                            <li class="nav-item" id="liControlAcceso" runat="server" visible="false">
+                                <a class="nav-link" href="ControlAcceso.aspx">Control de acceso</a>
+                            </li>
+                            <li class="nav-item" id="liRelacionesComerciales" runat="server" visible="false">
+                                <a class="nav-link" href="RelacionesComerciales.aspx">Relaciones Comerciales</a>
+                            </li>
+                            <li class="nav-item dropdown" id="liInventario" runat="server" visible="false">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Inventario</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="Productos.aspx">Productos</a></li>
+                                    <li><a class="dropdown-item" href="Marcas.aspx">Marcas</a></li>
+                                    <li><a class="dropdown-item" href="Categorias.aspx">Categorías</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown" id="liOperaciones" runat="server" visible="false">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Operaciones</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="fCompra.aspx">Compra</a></li>
+                                    <li><a class="dropdown-item" href="fVenta.aspx">Venta</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item dropdown" id="liPerfil" runat="server" visible="false">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <asp:Image ID="imgUser" runat="server" CssClass="image-button rounded-circle" alt="Perfil" />
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+                                    <li><a class="dropdown-item" href="Perfil.aspx">Ver Perfil</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li>
+                                        <asp:LinkButton ID="btnLogout" runat="server" CssClass="dropdown-item" OnClick="btnLogout_Click" CausesValidation="false">
+                                <img src="/images/logout.png" alt="Cerrar Sesión" style="height: 20px; width: 20px;" /> Cerrar Sesión
+                                        </asp:LinkButton>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+    <footer>
+        <p>© 2024 G9. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

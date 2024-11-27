@@ -1,0 +1,93 @@
+.image-thumbnail {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+}
+
+.table td, .table th {
+    vertical-align: middle;
+    text-align: center;
+}
+
+.estado-activo {
+    color: green;
+    font-weight: bold;
+}
+
+.estado-inactivo {
+    color: red;
+    font-weight: bold;
+}
+
+.btn-separator {
+    display: inline-block;
+    width: 10px;
+}
+
+.btn {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.card {
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: none;
+}
+
+.card-header {
+    background-color: #495057;
+    color: white;
+    font-weight: bold;
+}
+
+.form-control {
+    border-radius: 5px;
+}
+
+.btn-primary, .btn-secondary {
+    border-radius: 20px;
+    padding: 10px 20px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-secondary:hover {
+    background-color: #545b62;
+}
+
+.card {
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: none;
+    transition: transform 0.2s, box-shadow 0.2s; /* Animaciones para sombra y transformación */
+}
+
+.card:hover {
+    transform: translateY(-10px); /* Eleva la tarjeta al pasar el mouse */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+}
+
+.btn {
+    transition: background-color 0.3s, transform 0.3s; /* Transiciones para fondo y transformación */
+}
+
+.btn:hover {
+    transform: scale(1.05); /* Agranda un poco el botón al pasar el mouse */
+}
+
+.table {
+    transition: all 0.2s ease-in-out; /* Transiciones para la tabla */
+}
